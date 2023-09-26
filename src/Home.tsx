@@ -10,16 +10,20 @@ export const Home = () => {
 	const nav = useNavigate();
 
     return (
+      <>
+        <h3>
+          Lorcana Log
+        </h3>
         <Button 
-        size="large" 
-        variant="filled"
-        color="primary"
-        startIcon={<Add />}
-        css={css`margin-top: 20px`}
-        onClick={() => nav("/logentry")}
-        >
-        Add Log Entry
-      </Button>
-
+          size="large" 
+          variant="filled"
+          color="primary"
+          startIcon={<Add />}
+          css={css`margin-top: 20px`}
+          onClick={() => nav("/logentry")}
+          >
+          Add Log Entry
+        </Button>
+      </>
     );
 };

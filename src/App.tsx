@@ -1,23 +1,31 @@
-/** @jsxImportSource @emotion/react */
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Button from '@mui/material-next/Button';
-import Add from '@mui/icons-material/Add'
-import { css } from '@emotion/react'
+
+import {
+  createHashRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+import { Home } from './Home';
+import { AddEditLogEntry } from './AddEditLogEntry';
+
+const router = createHashRouter([
+  {
+    path: "/",
+    element: <Home />,
+    // element: Math.floor(Math.random() * 10) > 4 ? <Home /> : <AddEditLogEntry />,
+  },
+  {
+    path: "/logentry",
+    element: <AddEditLogEntry />,
+  },
+]);
 
 function App() {
   return (
     <div className="App">
-      <Button 
-        size="large" 
-        variant="filled"
-        color="primary"
-        startIcon={<Add />}
-        css={css`margin-top: 20px`}
-      >
-        Add Log Entry
-      </Button>
+      <RouterProvider router={router} />
     </div>
   );
 }
